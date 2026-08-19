@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0a0a0b;
+  --surface: #131315;
+  --surface-2: #1b1b1e;
+  --foreground: #f2f2f0;
+  --muted: #8c8c8f;
+  --border: #2a2a2e;
+  --hazard: #ffdd00;
+  --hazard-dim: #b39b00;
+  --danger: #ff3b30;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-hazard: var(--hazard);
+  --color-hazard-dim: var(--hazard-dim);
+  --color-danger: var(--danger);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+* {
+  border-color: var(--border);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Hazard stripe utility */
+.hazard-stripes {
+  background-image: repeating-linear-gradient(
+    45deg,
+    var(--hazard) 0,
+    var(--hazard) 14px,
+    #0a0a0b 14px,
+    #0a0a0b 28px
+  );
+}
+
+.mono {
+  font-family: var(--font-mono), ui-monospace, monospace;
+}
+
+.stencil {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+}
+
+/* Dummy target reticle */
+.reticle {
+  position: relative;
+}
+.reticle::before,
+.reticle::after {
+  content: "";
+  position: absolute;
+  background: var(--hazard);
+}
+
+::selection {
+  background: var(--hazard);
+  color: #0a0a0b;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border);
+}
