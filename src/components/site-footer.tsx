@@ -3,13 +3,14 @@ import { Logo } from "./logo";
 
 export function SiteFooter() {
   return (
-    <footer className="mt-20 border-t border-border bg-surface">
+    <footer className="relative mt-20 bg-surface">
+      <div className="drift-divider-dotted" />
       <div className="mx-auto max-w-6xl px-5 py-10">
         <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
           <div className="flex items-center gap-3">
             <Logo className="h-7 w-7" />
             <span className="stencil text-foreground">
-              BAD<span className="text-hazard">/</span>MARKET
+              BAD<span className="text-accent">/</span>MARKET
             </span>
           </div>
           <nav className="flex flex-wrap gap-x-6 gap-y-2">
@@ -24,7 +25,8 @@ export function SiteFooter() {
             </Link>
           </nav>
         </div>
-        <div className="mt-8 flex flex-col gap-2 border-t border-border pt-6 md:flex-row md:justify-between">
+        <hr className="drift-divider mt-8" />
+        <div className="mt-6 flex flex-col gap-2 md:flex-row md:justify-between">
           <p className="mono text-xs uppercase tracking-wider text-muted">
             © {new Date().getFullYear()} Bad Market — Drift responsibly. Or don&apos;t.
           </p>

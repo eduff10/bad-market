@@ -11,16 +11,16 @@ function formatPrice(price: number | null, currency: string): string {
 }
 
 const statusStyles: Record<Listing["status"], string> = {
-  available: "bg-hazard text-black",
-  pending: "bg-surface-2 text-hazard border border-hazard-dim",
-  sold: "bg-danger/20 text-danger border border-danger/40",
+  available: "bg-ink text-surface",
+  pending: "bg-surface-2 text-foreground border-2 border-dashed border-ink",
+  sold: "bg-accent text-white",
 };
 
 export function ListingCard({ listing }: { listing: Listing }) {
   return (
     <Link
       href={`/listings/${listing.id}`}
-      className="group flex flex-col overflow-hidden border border-border bg-surface transition-colors hover:border-hazard-dim"
+      className="group flex flex-col overflow-hidden cut-outline-solid bg-surface transition-transform hover:-translate-y-0.5"
     >
       <div className="relative aspect-[4/3] overflow-hidden bg-surface-2">
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -35,12 +35,12 @@ export function ListingCard({ listing }: { listing: Listing }) {
           >
             {listing.status}
           </span>
-          <span className="mono bg-black/70 px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-foreground">
+          <span className="mono bg-ink/80 px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-surface">
             {listing.category}
           </span>
         </div>
         {listing.featured && (
-          <span className="mono absolute right-3 top-3 bg-hazard px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-black">
+          <span className="mono absolute right-3 top-3 bg-accent px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-white">
             ★ Featured
           </span>
         )}
@@ -49,11 +49,11 @@ export function ListingCard({ listing }: { listing: Listing }) {
         <div className="mono text-[11px] uppercase tracking-wider text-muted">
           {listing.make} · {listing.location}
         </div>
-        <h3 className="text-base font-semibold leading-snug text-foreground group-hover:text-hazard">
+        <h3 className="text-base font-semibold leading-snug text-foreground group-hover:text-accent">
           {listing.title}
         </h3>
         <div className="mt-auto flex items-center justify-between pt-2">
-          <span className="stencil text-lg text-hazard">
+          <span className="stencil text-lg text-accent">
             {formatPrice(listing.price, listing.currency)}
           </span>
           <span className="mono text-[11px] uppercase tracking-wider text-muted transition-colors group-hover:text-foreground">

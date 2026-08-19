@@ -44,13 +44,13 @@ export default async function ListingsPage({
 
   return (
     <div className="mx-auto max-w-6xl px-5 py-12">
-      <div className="mb-2 mono text-xs uppercase tracking-widest text-hazard">
+      <div className="mb-2 mono text-xs uppercase tracking-widest text-accent">
         Curated inventory
       </div>
       <h1 className="text-4xl font-black text-foreground">
         Listings
         {activeLabel && (
-          <span className="text-hazard"> · {activeLabel}</span>
+          <span className="text-accent"> · {activeLabel}</span>
         )}
       </h1>
       <p className="mt-2 max-w-xl text-muted">
@@ -60,13 +60,13 @@ export default async function ListingsPage({
       {activeLabel && (
         <Link
           href="/listings"
-          className="mono mt-3 inline-block text-xs uppercase tracking-wider text-muted hover:text-hazard"
+          className="mono mt-3 inline-block text-xs uppercase tracking-wider text-muted hover:text-accent"
         >
           ✕ Clear filter
         </Link>
       )}
 
-      <div className="mt-8 flex gap-2 border-b border-border pb-4">
+      <div className="mt-8 flex gap-2 pb-4" style={{ borderBottom: "2px dashed var(--ink)" }}>
         {tabs.map((t) => {
           const active = filter === t.key;
           return (
@@ -75,12 +75,12 @@ export default async function ListingsPage({
               href={tabHref(t.key)}
               className={`mono px-4 py-2 text-sm uppercase tracking-wide transition-colors ${
                 active
-                  ? "bg-hazard text-black"
-                  : "border border-border bg-surface text-muted hover:text-foreground"
+                  ? "bg-ink text-surface"
+                  : "cut-outline-solid bg-surface text-foreground hover:text-accent"
               }`}
             >
               {t.label}{" "}
-              <span className={active ? "text-black/60" : "text-muted"}>
+              <span className={active ? "text-surface/70" : "text-muted"}>
                 ({t.count})
               </span>
             </Link>

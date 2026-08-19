@@ -30,27 +30,30 @@ export default async function Home() {
   return (
     <div className="mx-auto max-w-6xl px-5 py-8">
       {/* Search / status bar */}
-      <div className="mb-6 flex flex-col gap-3 border-b border-border pb-5 sm:flex-row sm:items-end sm:justify-between">
+      <div className="mb-6 flex flex-col gap-3 pb-5 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <h1 className="text-2xl font-black tracking-tight text-foreground">
+          <h1 className="text-3xl font-black tracking-tight text-foreground">
             drift classifieds
           </h1>
           <p className="mono mt-1 text-xs uppercase tracking-widest text-muted">
-            <span className="text-hazard">{carCount}</span> cars ·{" "}
-            <span className="text-hazard">{partCount}</span> parts ·{" "}
-            <span className="text-hazard">{videos.length}</span> videos ·{" "}
-            <span className="text-hazard">{resources.length}</span> resources
+            <span className="text-accent">{carCount}</span> cars ·{" "}
+            <span className="text-accent">{partCount}</span> parts ·{" "}
+            <span className="text-accent">{videos.length}</span> videos ·{" "}
+            <span className="text-accent">{resources.length}</span> resources
           </p>
         </div>
         <Link
           href="/listings"
-          className="stencil bg-hazard px-5 py-2.5 text-center text-sm text-black transition-transform hover:-translate-y-0.5"
+          className="stencil cut-outline-solid bg-surface px-5 py-2.5 text-center text-sm text-foreground transition-transform hover:-translate-y-0.5"
         >
           Browse all listings →
         </Link>
       </div>
+      <hr className="drift-divider-dotted mb-8" />
 
       {/* CATEGORY INDEX — the Craigslist grid */}
+      <div className="cut-outline relative bg-surface/80 p-6 backdrop-blur-sm">
+      <span className="cut-tag absolute -top-2.5 left-4">index</span>
       <div className="grid gap-x-8 gap-y-8 md:grid-cols-4">
         {/* Column 1: For Sale */}
         <IndexColumn title="for sale">
@@ -89,20 +92,22 @@ export default async function Home() {
           <IndexLink href="/resources" label="resources" count={resources.length} />
         </IndexColumn>
       </div>
+      </div>
 
       {/* FEATURED — compact strip */}
       {featured.length > 0 && (
-        <section className="mt-12 border-t border-border pt-8">
+        <section className="mt-12 pt-8">
+          <hr className="drift-divider mb-6" />
           <div className="mb-4 flex items-baseline justify-between">
-            <h2 className="stencil text-sm text-muted">★ featured</h2>
+            <h2 className="stencil text-sm text-accent">★ featured</h2>
             <Link
               href="/listings"
-              className="mono text-xs uppercase tracking-wide text-muted hover:text-hazard"
+              className="mono text-xs uppercase tracking-wide text-muted hover:text-accent"
             >
               see all →
             </Link>
           </div>
-          <ul className="divide-y divide-border border border-border bg-surface">
+          <ul className="cut-outline-solid divide-y divide-dashed divide-[#1a1416]/40 bg-surface">
             {featured.map((l) => (
               <li key={l.id}>
                 <Link
@@ -116,14 +121,14 @@ export default async function Home() {
                     className="h-12 w-16 shrink-0 object-cover"
                   />
                   <div className="min-w-0 flex-1">
-                    <div className="truncate text-sm font-semibold text-foreground group-hover:text-hazard">
+                    <div className="truncate text-sm font-semibold text-foreground group-hover:text-accent">
                       {l.title}
                     </div>
                     <div className="mono text-[11px] uppercase tracking-wider text-muted">
                       {l.make} · {l.location} · {l.category}
                     </div>
                   </div>
-                  <div className="stencil shrink-0 text-sm text-hazard">
+                  <div className="stencil shrink-0 text-sm text-accent">
                     {l.price === null
                       ? "inquire"
                       : new Intl.NumberFormat("en-US", {
@@ -140,7 +145,8 @@ export default async function Home() {
       )}
 
       {/* Mission note */}
-      <p className="mono mt-10 border-t border-border pt-6 text-xs uppercase tracking-wider text-muted">
+      <hr className="drift-divider-dotted mt-10" />
+      <p className="mono pt-6 text-xs uppercase tracking-wider text-muted">
         Bad Market curates drift listings from across the community. Deals happen
         with the original seller. Two-sided marketplace coming soon.
       </p>
@@ -157,7 +163,7 @@ function IndexColumn({
 }) {
   return (
     <div>
-      <h2 className="stencil mb-3 border-b border-border pb-2 text-sm text-hazard">
+      <h2 className="stencil mb-3 pb-2 text-sm text-foreground" style={{ borderBottom: "2px dashed var(--ink)" }}>
         {title}
       </h2>
       <ul className="space-y-1.5">{children}</ul>
@@ -180,7 +186,7 @@ function IndexLink({
         href={href}
         className="group flex items-baseline justify-between gap-2 text-sm"
       >
-        <span className="text-foreground underline decoration-border underline-offset-2 transition-colors group-hover:text-hazard group-hover:decoration-hazard">
+        <span className="text-foreground underline decoration-dotted decoration-[var(--pink-line)] underline-offset-2 transition-colors group-hover:text-accent group-hover:decoration-accent">
           {label}
         </span>
         <span className="mono text-[11px] text-muted">{count}</span>

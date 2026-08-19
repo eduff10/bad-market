@@ -39,13 +39,13 @@ export default async function ListingDetail({
     <div className="mx-auto max-w-5xl px-5 py-10">
       <Link
         href="/listings"
-        className="mono text-xs uppercase tracking-wider text-muted hover:text-foreground"
+        className="mono text-xs uppercase tracking-wider text-muted hover:text-accent"
       >
         ← Back to listings
       </Link>
 
       <div className="mt-6 grid gap-8 md:grid-cols-2">
-        <div className="relative aspect-[4/3] overflow-hidden border border-border bg-surface-2">
+        <div className="relative aspect-[4/3] overflow-hidden cut-outline-solid bg-surface-2">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={listing.imageUrl}
@@ -53,26 +53,26 @@ export default async function ListingDetail({
             className="h-full w-full object-cover"
           />
           {listing.featured && (
-            <span className="mono absolute right-3 top-3 bg-hazard px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-black">
+            <span className="mono absolute right-3 top-3 bg-accent px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-white">
               ★ Featured
             </span>
           )}
         </div>
 
         <div className="flex flex-col">
-          <div className="mono mb-2 text-xs uppercase tracking-widest text-hazard">
+          <div className="mono mb-2 text-xs uppercase tracking-widest text-accent">
             {listing.category === "car" ? "Drift Build" : "Part"}
           </div>
           <h1 className="text-3xl font-black leading-tight text-foreground">
             {listing.title}
           </h1>
-          <div className="stencil mt-4 text-3xl text-hazard">
+          <div className="stencil mt-4 text-3xl text-accent">
             {formatPrice(listing.price, listing.currency)}
           </div>
 
           <p className="mt-6 text-muted">{listing.description}</p>
 
-          <dl className="mt-8 grid grid-cols-2 gap-px overflow-hidden border border-border bg-border">
+          <dl className="mt-8 grid grid-cols-2 gap-px overflow-hidden cut-outline-solid bg-ink">
             {spec.map(([k, v]) => (
               <div key={k} className="bg-surface p-3">
                 <dt className="mono text-[10px] uppercase tracking-wider text-muted">
@@ -87,7 +87,7 @@ export default async function ListingDetail({
             href={listing.sourceUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="stencil mt-8 inline-flex items-center justify-center gap-2 bg-hazard px-6 py-3 text-sm text-black transition-transform hover:-translate-y-0.5"
+            className="stencil mt-8 inline-flex items-center justify-center gap-2 bg-accent px-6 py-3 text-sm text-white transition-transform hover:-translate-y-0.5"
           >
             View original listing ↗
           </a>
