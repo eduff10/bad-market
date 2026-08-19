@@ -23,7 +23,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <SiteHeader />
-        <main className="min-h-[70vh]">{children}</main>
+        <main className="min-h-[40vh]">{children}</main>
         <SiteFooter />
       </body>
     </html>
