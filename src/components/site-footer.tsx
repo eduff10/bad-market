@@ -26,7 +26,7 @@ export function SiteFooter() {
         <hr className="drift-divider mt-8" />
         <div className="mt-6 flex flex-col gap-2 md:flex-row md:justify-between">
           <p className="mono text-xs uppercase tracking-wider text-muted">
-            © {new Date().getFullYear()} Bad Market — Drift responsibly. Or don&apos;t.
+            © {new Date().getFullYear()} Bad Market. Drift responsibly. Or don&apos;t.
           </p>
           <p className="mono text-xs uppercase tracking-wider text-muted">
             Listings curated from the community

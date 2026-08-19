@@ -12,7 +12,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Bad Market — Drift Cars, Parts & Culture",
+  title: "Bad Market: Drift Cars, Parts & Culture",
   description:
     "The hub for drift builds, parts, and knowledge. Curated listings, videos, and resources for the drift community.",
 };

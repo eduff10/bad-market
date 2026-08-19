@@ -2,7 +2,7 @@ import { getResources } from "@/lib/data";
 import type { ResourceType } from "@/lib/types";
 
 export const metadata = {
-  title: "Resources — Bad Market",
+  title: "Resources | Bad Market",
 };
 
 const typeLabels: Record<ResourceType, string> = {
@@ -40,7 +40,7 @@ export default async function ResourcesPage() {
       </div>
       <h1 className="text-4xl font-black text-foreground">Resources</h1>
       <p className="mt-2 max-w-xl text-muted">
-        Trusted shops, communities, guides, and events — a starting map for the
+        Trusted shops, communities, guides, and events. A starting map for the
         drift world.
       </p>
 

@@ -6,7 +6,7 @@ import { mockListings, mockVideos, mockResources } from "./mock-data";
  *
  * Today: returns mock data (see mock-data.ts).
  * Tomorrow: flip USE_SHEET to true and set the env vars to read
- * straight from a published Google Sheet (CSV) — no other code changes.
+ * straight from a published Google Sheet (CSV) - no other code changes.
  *
  * How the Sheet swap works:
  *   1. Build a Google Sheet with one tab per model: "Listings", "Videos", "Resources".

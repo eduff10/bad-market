@@ -51,7 +51,7 @@ export default async function Home() {
       </div>
       <hr className="drift-divider-dotted mb-8" />
 
-      {/* CATEGORY INDEX — the Craigslist grid */}
+      {/* CATEGORY INDEX: the Craigslist grid */}
       <div className="cut-outline relative bg-surface/80 p-6 backdrop-blur-sm">
       <span className="cut-tag absolute -top-2.5 left-4">index</span>
       <div className="grid gap-x-8 gap-y-8 md:grid-cols-4">
@@ -94,7 +94,7 @@ export default async function Home() {
       </div>
       </div>
 
-      {/* FEATURED — compact strip */}
+      {/* FEATURED: compact strip */}
       {featured.length > 0 && (
         <section className="mt-12 pt-8">
           <hr className="drift-divider mb-6" />

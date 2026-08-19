@@ -1,12 +1,12 @@
 import type { Listing, Video, Resource } from "./types";
 
-// MOCK DATA — placeholder until wired to the Google Sheet.
+// MOCK DATA: placeholder until wired to the Google Sheet.
 // See src/lib/data.ts for the swap point.
 
 export const mockListings: Listing[] = [
   {
     id: "l-001",
-    title: "1991 Nissan 240SX S13 — LS-Swapped Missile",
+    title: "1991 Nissan 240SX S13 - LS-Swapped Missile",
     category: "car",
     price: 12500,
     currency: "USD",
@@ -25,7 +25,7 @@ export const mockListings: Listing[] = [
   },
   {
     id: "l-002",
-    title: "Wisefab Front Lock Kit — S14/S15",
+    title: "Wisefab Front Lock Kit - S14/S15",
     category: "part",
     price: 1450,
     currency: "USD",
@@ -44,7 +44,7 @@ export const mockListings: Listing[] = [
   },
   {
     id: "l-003",
-    title: "2004 Mazda RX-8 — Drift Ready, LS Swap Prepped",
+    title: "2004 Mazda RX-8 - Drift Ready, LS Swap Prepped",
     category: "car",
     price: 6800,
     currency: "USD",
@@ -63,7 +63,7 @@ export const mockListings: Listing[] = [
   },
   {
     id: "l-004",
-    title: "BC Racing BR Coilovers — E46 Non-M",
+    title: "BC Racing BR Coilovers - E46 Non-M",
     category: "part",
     price: 900,
     currency: "USD",
@@ -82,7 +82,7 @@ export const mockListings: Listing[] = [
   },
   {
     id: "l-005",
-    title: "1995 Nissan Silvia S14 Kouki — Clean Shell",
+    title: "1995 Nissan Silvia S14 Kouki - Clean Shell",
     category: "car",
     price: null,
     currency: "USD",
@@ -91,7 +91,7 @@ export const mockListings: Listing[] = [
     model: "Silvia (S14)",
     year: 1995,
     description:
-      "Rare Kouki front end, rust-free shell, no engine. Contact for price — serious builds only.",
+      "Rare Kouki front end, rust-free shell, no engine. Contact for price. Serious builds only.",
     imageUrl:
       "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=1200&q=80",
     sourceUrl: "https://facebook.com/marketplace/item/example5",
@@ -101,7 +101,7 @@ export const mockListings: Listing[] = [
   },
   {
     id: "l-006",
-    title: "Set of 4 — 18x9.5 +12 Work Meister Replicas",
+    title: "Set of 4 - 18x9.5 +12 Work Meister Replicas",
     category: "part",
     price: 750,
     currency: "USD",
@@ -131,7 +131,7 @@ export const mockVideos: Video[] = [
   },
   {
     id: "v-002",
-    title: "Angle Kit Install — Full Walkthrough",
+    title: "Angle Kit Install - Full Walkthrough",
     channel: "Driftworks",
     youtubeId: "dQw4w9WgXcQ",
     tags: ["install", "angle-kit", "guide"],
@@ -139,7 +139,7 @@ export const mockVideos: Video[] = [
   },
   {
     id: "v-003",
-    title: "Learning To Drift — First Track Day Tips",
+    title: "Learning To Drift - First Track Day Tips",
     channel: "Chelsea DeNofa",
     youtubeId: "dQw4w9WgXcQ",
     tags: ["driving", "beginner", "track"],
@@ -161,7 +161,7 @@ export const mockResources: Resource[] = [
     title: "Enjuku Racing",
     type: "shop",
     url: "https://enjukuracing.com",
-    description: "Parts supplier — swap kits, angle kits, and drift essentials.",
+    description: "Parts supplier for swap kits, angle kits, and drift essentials.",
     tags: ["parts", "shop"],
   },
   {

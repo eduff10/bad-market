@@ -3,7 +3,7 @@ import { getListings } from "@/lib/data";
 import { ListingCard } from "@/components/listing-card";
 
 export const metadata = {
-  title: "Listings — Bad Market",
+  title: "Listings | Bad Market",
 };
 
 type Search = { [key: string]: string | string[] | undefined };

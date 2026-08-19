@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  /* Pink Pig palette — Porsche 917/20, 1971 */
+  /* Pink Pig palette - Porsche 917/20, 1971 */
   --background: #eaa0ab; /* iconic pig pink */
   --background-2: #e58c9b; /* deeper pink for bands */
   --surface: #f7ece1; /* cream "belly" panels */

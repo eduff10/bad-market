@@ -28,7 +28,7 @@ export default async function ListingDetail({
   const spec: [string, string][] = [
     ["Make", listing.make],
     ["Model", listing.model],
-    ["Year", listing.year ? String(listing.year) : "—"],
+    ["Year", listing.year ? String(listing.year) : "-"],
     ["Category", listing.category],
     ["Location", listing.location],
     ["Status", listing.status],
@@ -92,7 +92,7 @@ export default async function ListingDetail({
             View original listing ↗
           </a>
           <p className="mono mt-3 text-[11px] uppercase tracking-wider text-muted">
-            Bad Market curates — deals happen with the original seller.
+            Bad Market curates. Deals happen with the original seller.
           </p>
         </div>
       </div>

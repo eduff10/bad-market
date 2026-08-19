@@ -1,7 +1,7 @@
 import { getVideos } from "@/lib/data";
 
 export const metadata = {
-  title: "Videos — Bad Market",
+  title: "Videos | Bad Market",
 };
 
 export default async function VideosPage() {
@@ -14,7 +14,7 @@ export default async function VideosPage() {
       </div>
       <h1 className="text-4xl font-black text-foreground">Videos</h1>
       <p className="mt-2 max-w-xl text-muted">
-        Build guides, install walkthroughs, and driving tips — curated so you
+        Build guides, install walkthroughs, and driving tips, curated so you
         don&apos;t have to dig through the algorithm.
       </p>
 
