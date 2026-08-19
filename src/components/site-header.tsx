@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Logo } from "./logo";
 
 const nav = [
   { href: "/listings", label: "Listings" },
@@ -12,7 +11,6 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 bg-background/85 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
         <Link href="/" className="flex items-center gap-3">
-          <Logo className="h-9 w-9" />
           <span className="stencil text-lg text-foreground">
             BAD<span className="text-accent">/</span>MARKET
           </span>

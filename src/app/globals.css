@@ -62,12 +62,12 @@ body {
   opacity: 0.85;
 }
 
-/* Dashed section outline, like a butcher diagram cut */
+/* Dotted section outline, like a butcher diagram cut */
 .cut-outline {
-  border: 2px dashed var(--ink);
+  border: 2px dotted var(--ink);
 }
 .cut-outline-solid {
-  border: 2px solid var(--ink);
+  border: 2px dotted var(--ink);
 }
 
 /* Little section tag, like "Kotelett / Filet" labels on the car */

@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Logo } from "./logo";
 
 export function SiteFooter() {
   return (
@@ -8,7 +7,6 @@ export function SiteFooter() {
       <div className="mx-auto max-w-6xl px-5 py-10">
         <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
           <div className="flex items-center gap-3">
-            <Logo className="h-7 w-7" />
             <span className="stencil text-foreground">
               BAD<span className="text-accent">/</span>MARKET
             </span>

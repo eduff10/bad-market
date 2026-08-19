@@ -13,31 +13,31 @@ export function DriftLines({ className }: { className?: string }) {
     >
       <g
         stroke="var(--ink)"
-        strokeWidth="2.5"
-        opacity="0.16"
+        strokeWidth="6"
+        opacity="0.18"
         strokeLinecap="round"
       >
         {/* Long sweeping drift arcs, dotted + dashed like butcher cuts */}
         <path
           d="M-50 180 C 300 60, 700 40, 1000 220 S 1500 520, 1520 360"
-          strokeDasharray="2 12"
+          strokeDasharray="3 16"
         />
         <path
           d="M-50 320 C 350 200, 760 200, 1050 380 S 1480 640, 1520 500"
-          strokeDasharray="14 12"
+          strokeDasharray="22 16"
         />
         <path
           d="M-50 520 C 380 400, 820 460, 1120 600 S 1500 820, 1520 720"
-          strokeDasharray="2 12"
+          strokeDasharray="3 16"
         />
         <path
           d="M-50 700 C 300 620, 780 700, 1080 760 S 1520 900, 1520 880"
-          strokeDasharray="14 12"
+          strokeDasharray="22 16"
         />
         {/* A tighter drift transition curve */}
         <path
           d="M200 900 C 260 560, 620 460, 980 500"
-          strokeDasharray="2 12"
+          strokeDasharray="3 16"
         />
       </g>
     </svg>

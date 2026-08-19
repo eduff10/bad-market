@@ -12,7 +12,7 @@ function formatPrice(price: number | null, currency: string): string {
 
 const statusStyles: Record<Listing["status"], string> = {
   available: "bg-ink text-surface",
-  pending: "bg-surface-2 text-foreground border-2 border-dashed border-ink",
+  pending: "bg-surface-2 text-foreground border-2 border-dotted border-ink",
   sold: "bg-accent text-white",
 };
 
