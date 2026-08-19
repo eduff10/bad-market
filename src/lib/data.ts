@@ -86,12 +86,35 @@ function parseCsv(text: string): Record<string, string>[] {
     });
 }
 
-async function fetchSheet(gid: string): Promise<Record<string, string>[]> {
-  const res = await fetch(csvUrl(gid), {
-    next: { revalidate: REVALIDATE_SECONDS },
-  });
-  if (!res.ok) throw new Error(`Sheet fetch failed: ${res.status}`);
-  return parseCsv(await res.text());
+async function fetchSheet(
+  gid: string | undefined,
+  label: string
+): Promise<Record<string, string>[] | null> {
+  // Missing config -> don't crash the build, just fall back.
+  if (!process.env.SHEET_PUB_ID || !gid) {
+    console.warn(
+      `[data] Sheet config missing for "${label}" (SHEET_PUB_ID or gid). Falling back to mock data.`
+    );
+    return null;
+  }
+  try {
+    const res = await fetch(csvUrl(gid), {
+      next: { revalidate: REVALIDATE_SECONDS },
+    });
+    if (!res.ok) {
+      console.warn(
+        `[data] Sheet fetch for "${label}" failed: ${res.status}. Falling back to mock data.`
+      );
+      return null;
+    }
+    return parseCsv(await res.text());
+  } catch (err) {
+    console.warn(
+      `[data] Sheet fetch for "${label}" errored. Falling back to mock data.`,
+      err
+    );
+    return null;
+  }
 }
 
 function toBool(v: string): boolean {
@@ -108,7 +131,8 @@ function toNumOrNull(v: string): number | null {
 
 export async function getListings(): Promise<Listing[]> {
   if (!USE_SHEET) return mockListings;
-  const rows = await fetchSheet(process.env.SHEET_GID_LISTINGS!);
+  const rows = await fetchSheet(process.env.SHEET_GID_LISTINGS, "Listings");
+  if (!rows) return mockListings;
   return rows.map((r) => ({
     id: r.id,
     title: r.title,
@@ -130,7 +154,8 @@ export async function getListings(): Promise<Listing[]> {
 
 export async function getVideos(): Promise<Video[]> {
   if (!USE_SHEET) return mockVideos;
-  const rows = await fetchSheet(process.env.SHEET_GID_VIDEOS!);
+  const rows = await fetchSheet(process.env.SHEET_GID_VIDEOS, "Videos");
+  if (!rows) return mockVideos;
   return rows.map((r) => ({
     id: r.id,
     title: r.title,
@@ -143,7 +168,8 @@ export async function getVideos(): Promise<Video[]> {
 
 export async function getResources(): Promise<Resource[]> {
   if (!USE_SHEET) return mockResources;
-  const rows = await fetchSheet(process.env.SHEET_GID_RESOURCES!);
+  const rows = await fetchSheet(process.env.SHEET_GID_RESOURCES, "Resources");
+  if (!rows) return mockResources;
   return rows.map((r) => ({
     id: r.id,
     title: r.title,
