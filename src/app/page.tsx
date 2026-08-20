@@ -52,7 +52,7 @@ export default async function Home() {
       <hr className="drift-divider-dotted mb-8" />
 
       {/* CATEGORY INDEX: the Craigslist grid */}
-      <div className="cut-outline relative bg-surface/80 p-6 backdrop-blur-sm">
+      <div className="cut-outline relative bg-surface p-6">
       <span className="cut-tag absolute -top-2.5 left-4">index</span>
       <div className="grid gap-x-8 gap-y-8 md:grid-cols-4">
         {/* Column 1: For Sale */}

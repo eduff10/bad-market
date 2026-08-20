@@ -4,12 +4,12 @@
   /* Pink Pig palette - Porsche 917/20, 1971 */
   --background: #eaa0ab; /* iconic pig pink */
   --background-2: #e58c9b; /* deeper pink for bands */
-  --surface: #f7ece1; /* cream "belly" panels */
-  --surface-2: #efe0d2; /* slightly deeper cream */
+  --surface: #e9ebee; /* cool greyish white "belly" panels */
+  --surface-2: #dcdee2; /* slightly deeper cool grey */
   --foreground: #1a1416; /* butcher-ink near-black */
-  --muted: #4a3a3f; /* darker mauve-brown ink for contrast on pink */
+  --muted: #34333a; /* dark neutral ink for readable metadata */
   --border: #1a1416; /* black linework */
-  --border-soft: #cbb6a6; /* soft cream border */
+  --border-soft: #c7c7c9; /* soft cool grey border */
   --ink: #1a1416;
   --accent: #c8102e; /* Porsche racing red */
   --pink-line: #b5566a; /* dotted lines on pink bg */
