@@ -107,7 +107,7 @@ export default async function Home() {
               see all →
             </Link>
           </div>
-          <ul className="cut-outline-solid divide-y divide-dashed divide-[#1a1416]/40 bg-surface">
+          <ul className="cut-outline-solid divide-y divide-dashed divide-border-soft bg-surface">
             {featured.map((l) => (
               <li key={l.id}>
                 <Link

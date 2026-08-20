@@ -1,18 +1,19 @@
 @import "tailwindcss";
 
 :root {
-  /* Pink Pig palette - Porsche 917/20, 1971 */
-  --background: #eaa0ab; /* iconic pig pink */
-  --background-2: #e58c9b; /* deeper pink for bands */
-  --surface: #e9ebee; /* cool greyish white "belly" panels */
-  --surface-2: #dcdee2; /* slightly deeper cool grey */
-  --foreground: #1a1416; /* butcher-ink near-black */
-  --muted: #34333a; /* dark neutral ink for readable metadata */
-  --border: #1a1416; /* black linework */
-  --border-soft: #c7c7c9; /* soft cool grey border */
-  --ink: #1a1416;
-  --accent: #c8102e; /* Porsche racing red */
-  --pink-line: #b5566a; /* dotted lines on pink bg */
+  /* "Pit Wall" — dark canvas, Pink Pig accent, bone drift-lines */
+  --background: #141216; /* deep charcoal canvas */
+  --background-2: #1b191f; /* slightly lifted charcoal band */
+  --surface: #1e1c22; /* dark grey panels/cards */
+  --surface-2: #262329; /* deeper panel / inner area */
+  --foreground: #f2eef0; /* bone-white text */
+  --muted: #a39ba1; /* muted mauve-grey metadata */
+  --border: #ece3dc; /* bone linework (dotted cuts) */
+  --border-soft: #3a353d; /* soft dark divider */
+  --ink: #ece3dc; /* bone "ink" for dotted drift-lines */
+  --accent: #f0568a; /* Pink Pig hot pink accent */
+  --accent-deep: #d63b71; /* deeper pink for hovers/fills */
+  --pink-line: #f0568a; /* pink dotted underlines */
 }
 
 @theme inline {
@@ -26,6 +27,7 @@
   --color-border-soft: var(--border-soft);
   --color-ink: var(--ink);
   --color-accent: var(--accent);
+  --color-accent-deep: var(--accent-deep);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }

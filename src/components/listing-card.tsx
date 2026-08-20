@@ -11,9 +11,9 @@ function formatPrice(price: number | null, currency: string): string {
 }
 
 const statusStyles: Record<Listing["status"], string> = {
-  available: "bg-ink text-surface",
-  pending: "bg-surface-2 text-foreground border-2 border-dotted border-ink",
-  sold: "bg-accent text-white",
+  available: "bg-background text-accent border border-dotted border-accent",
+  pending: "bg-background text-foreground border border-dotted border-border",
+  sold: "bg-accent text-background",
 };
 
 export function ListingCard({ listing }: { listing: Listing }) {
@@ -35,12 +35,12 @@ export function ListingCard({ listing }: { listing: Listing }) {
           >
             {listing.status}
           </span>
-          <span className="mono bg-ink/80 px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-surface">
+          <span className="mono bg-background px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-foreground">
             {listing.category}
           </span>
         </div>
         {listing.featured && (
-          <span className="mono absolute right-3 top-3 bg-accent px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-white">
+          <span className="mono absolute right-3 top-3 bg-accent px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-background">
             ★ Featured
           </span>
         )}

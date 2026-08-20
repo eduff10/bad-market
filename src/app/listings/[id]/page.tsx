@@ -53,7 +53,7 @@ export default async function ListingDetail({
             className="h-full w-full object-cover"
           />
           {listing.featured && (
-            <span className="mono absolute right-3 top-3 bg-accent px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-white">
+            <span className="mono absolute right-3 top-3 bg-accent px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-background">
               ★ Featured
             </span>
           )}
@@ -87,7 +87,7 @@ export default async function ListingDetail({
             href={listing.sourceUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="stencil mt-8 inline-flex items-center justify-center gap-2 bg-accent px-6 py-3 text-sm text-white transition-transform hover:-translate-y-0.5"
+            className="stencil mt-8 inline-flex items-center justify-center gap-2 bg-accent px-6 py-3 text-sm text-background transition-transform hover:-translate-y-0.5"
           >
             View original listing ↗
           </a>
