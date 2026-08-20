@@ -186,7 +186,7 @@ function IndexLink({
         href={href}
         className="group flex items-baseline justify-between gap-2 text-sm"
       >
-        <span className="text-foreground underline decoration-dotted decoration-[var(--pink-line)] underline-offset-2 transition-colors group-hover:text-accent group-hover:decoration-accent">
+        <span className="text-foreground transition-colors group-hover:text-accent">
           {label}
         </span>
         <span className="mono text-[11px] text-muted">{count}</span>

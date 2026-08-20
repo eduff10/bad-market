@@ -21,6 +21,9 @@ export function SiteFooter() {
             <Link href="/resources" className="mono text-sm text-muted hover:text-foreground">
               Resources
             </Link>
+            <Link href="/feedback" className="mono text-sm text-muted hover:text-foreground">
+              Wishlist
+            </Link>
           </nav>
         </div>
         <hr className="drift-divider mt-8" />
