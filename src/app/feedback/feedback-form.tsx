@@ -65,7 +65,7 @@ export function FeedbackForm() {
         </h2>
         <p className="mx-auto mt-3 max-w-md text-muted">
           Thanks for telling us what you&apos;re after. This is exactly how the
-          Market grows — we read every one and reach back out when we find what
+          Market grows. We read every one and reach back out when we find what
           you&apos;re looking for.
         </p>
         <button
