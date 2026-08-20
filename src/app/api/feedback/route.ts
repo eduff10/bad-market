@@ -7,6 +7,13 @@ type FeedbackPayload = {
   contactOk?: boolean;
 };
 
+const intentLabels: Record<string, string> = {
+  "looking-for": "Looking for something",
+  resource: "Wants a resource",
+  feature: "Feature request",
+  general: "General feedback",
+};
+
 export async function POST(req: Request) {
   let body: FeedbackPayload;
   try {
@@ -23,15 +30,44 @@ export async function POST(req: Request) {
     );
   }
 
-  // For now, just log server-side. Swap this for a DB insert, email,
-  // Google Sheet, Airtable, or Slack webhook when you're ready to route it.
-  console.log("[feedback]", {
+  const record = {
     intent: body.intent ?? "general",
+    intentLabel: intentLabels[body.intent ?? "general"] ?? "General feedback",
     message,
-    email: body.email ?? "",
+    email: (body.email ?? "").trim(),
     contactOk: body.contactOk ?? false,
     at: new Date().toISOString(),
-  });
+  };
+
+  // Always log server-side as a fallback.
+  console.log("[feedback]", record);
+
+  // Forward to the configured sink (Formspree, webhook, etc.) when set.
+  const webhook = process.env.FEEDBACK_WEBHOOK_URL;
+  if (webhook) {
+    try {
+      await fetch(webhook, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          // Formspree-friendly named fields (also fine for any JSON sink)
+          type: record.intentLabel,
+          message: record.message,
+          email: record.email || "(none given)",
+          _replyto: record.email || undefined,
+          contactOk: record.contactOk ? "Yes" : "No",
+          time: record.at,
+          intent: record.intent,
+        }),
+      });
+    } catch (err) {
+      console.error("[feedback] webhook forward failed", err);
+      // Don't fail the user's submission if the sink is down.
+    }
+  }
 
   return NextResponse.json({ ok: true });
 }
