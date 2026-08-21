@@ -134,6 +134,7 @@ function toNumOrNull(v: string): number | null {
 // uses its hosted photo, overriding whatever is in the Sheet's imageUrl.
 // This means no Sheet editing is needed to attach a photo to a listing.
 const HOSTED_IMAGES = new Set<string>([
+  "l-007",
   "l-013",
   "l-014",
   "l-024",
