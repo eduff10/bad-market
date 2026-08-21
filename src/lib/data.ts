@@ -129,6 +129,22 @@ function toNumOrNull(v: string): number | null {
 
 // ---- Public API ----
 
+// Locally hosted photos live in /public/listings/<id>.jpg and ship with the
+// site (permanent, unlike expiring Facebook CDN links). Any id listed here
+// uses its hosted photo, overriding whatever is in the Sheet's imageUrl.
+// This means no Sheet editing is needed to attach a photo to a listing.
+const HOSTED_IMAGES = new Set<string>([
+  "l-013",
+  "l-014",
+]);
+
+function resolveImageUrl(id: string, sheetImageUrl: string): string {
+  if (HOSTED_IMAGES.has(id)) return `/listings/${id}.jpg`;
+  // Ignore Facebook CDN links entirely - they expire and break cards.
+  if (sheetImageUrl && sheetImageUrl.includes("fbcdn.net")) return "";
+  return sheetImageUrl;
+}
+
 export async function getListings(): Promise<Listing[]> {
   if (!USE_SHEET) return mockListings;
   const rows = await fetchSheet(process.env.SHEET_GID_LISTINGS, "Listings");
@@ -144,7 +160,7 @@ export async function getListings(): Promise<Listing[]> {
     model: r.model,
     year: toNumOrNull(r.year),
     description: r.description,
-    imageUrl: r.imageUrl,
+    imageUrl: resolveImageUrl(r.id, r.imageUrl),
     sourceUrl: r.sourceUrl,
     status: (r.status as Listing["status"]) || "available",
     featured: toBool(r.featured),
