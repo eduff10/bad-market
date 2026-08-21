@@ -140,6 +140,7 @@ const HOSTED_IMAGES = new Set<string>([
   "l-024",
   "l-025",
   "l-026",
+  "l-027",
 ]);
 
 function resolveImageUrl(id: string, sheetImageUrl: string): string {
