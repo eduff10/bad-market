@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getListingById, getListings } from "@/lib/data";
+import { ListingImage } from "@/components/listing-image";
 
 export async function generateStaticParams() {
   const listings = await getListings();
@@ -46,8 +47,7 @@ export default async function ListingDetail({
 
       <div className="mt-6 grid gap-8 md:grid-cols-2">
         <div className="relative aspect-[4/3] overflow-hidden cut-outline-solid bg-surface-2">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <ListingImage
             src={listing.imageUrl}
             alt={listing.title}
             className="h-full w-full object-cover"

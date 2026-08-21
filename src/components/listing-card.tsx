@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Listing } from "@/lib/types";
+import { ListingImage } from "./listing-image";
 
 function formatPrice(price: number | null, currency: string): string {
   if (price === null) return "Contact for price";
@@ -23,8 +24,7 @@ export function ListingCard({ listing }: { listing: Listing }) {
       className="group flex flex-col overflow-hidden cut-outline-solid bg-surface transition-transform hover:-translate-y-0.5"
     >
       <div className="relative aspect-[4/3] overflow-hidden bg-surface-2">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <ListingImage
           src={listing.imageUrl}
           alt={listing.title}
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
